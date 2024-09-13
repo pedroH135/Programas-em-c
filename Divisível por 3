@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int cont (int N, int  m) {
+    if(m > N) {
+        return 0;
+    }
+    
+    if (N % m == 0 && m % 3 == 0) {
+        return 1 + cont(N, m + 1);
+    }
+    
+    return cont(N, m + 1);
+}
+
+int main() {
+    int n, divi;
+    scanf("%d", &n);
+    
+    divi = cont(n, 1);
+    
+    if (divi > 0) {
+        printf("%d\n", divi);
+    }
+    else 
+    {
+        printf("O numero nao possui divisores multiplos de 3!\n");
+    }
+    
+    return 0;
+}
