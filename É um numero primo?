@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int primo(int n, int d) {
+    if (d == 1) 
+    {
+        return 1;  
+    }
+    if (n % d == 0) 
+    {
+        return 0;  
+    }
+    return primo(n, d - 1);  
+}
+
+int p(int n) {
+    if (n <= 1) return 0;  
+    return primo(n, n - 1);  
+}
+
+
+void ent() {
+    int n;
+    scanf("%d", &n);
+    if (n == -1) 
+    {
+        return; 
+    }
+    else 
+    {
+        printf("%d\n", p(n));
+        ent(); 
+    }
+    
+}
+int main() {
+    
+    ent(); 
+    
+    return 0;
+}
